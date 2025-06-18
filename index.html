@@ -10,20 +10,24 @@
       position: relative;
       max-width: 280px;
       margin: auto;
+      overflow: hidden;
     }
     .game-card {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      width: 100%;
       background-color: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
     }
     .game-card.active {
-      display: block;
-    }
-    .game-card:hover {
-      transform: scale(1.03);
+      left: 0;
+      opacity: 1;
+      z-index: 1;
     }
     .game-card img {
       width: 100%;
@@ -50,18 +54,22 @@
       justify-content: space-between;
     }
     .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      margin: 0.5rem auto;
-      max-width: 280px;
+      pointer-events: none;
     }
     .carousel-buttons button {
-      background: #00ccff;
+      background: rgba(0, 204, 255, 0.7);
       color: #000;
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 6px;
       cursor: pointer;
+      pointer-events: all;
     }
     .game-card a {
       text-decoration: none;
@@ -133,10 +141,10 @@
           </div>
         </a>
       </div>
-    </div>
-    <div class="carousel-buttons">
-      <button onclick="prevCard()">← Previous</button>
-      <button onclick="nextCard()">Next →</button>
+      <div class="carousel-buttons">
+        <button onclick="prevCard()">←</button>
+        <button onclick="nextCard()">→</button>
+      </div>
     </div>
 
     <h2>Contact</h2>
@@ -159,7 +167,12 @@
     let current = 0;
 
     function showCard(index) {
-      cards.forEach((card, i) => card.classList.toggle("active", i === index));
+      cards.forEach((card, i) => {
+        card.classList.remove("active");
+        card.style.left = (i < index ? "-100%" : i > index ? "100%" : "0");
+        card.style.opacity = (i === index ? 1 : 0);
+      });
+      cards[index].classList.add("active");
     }
 
     function prevCard() {
