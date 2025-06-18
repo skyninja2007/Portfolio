@@ -6,62 +6,90 @@
   <title>Skyninja - Roblox Programmer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .avatar {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
     .game-carousel {
       position: relative;
       max-width: 280px;
       margin: auto;
       overflow: hidden;
     }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+
     .game-card {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
-      width: 100%;
+      flex: 0 0 100%;
       background-color: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin-right: 10px;
     }
-    .game-card.active {
-      left: 0;
-      opacity: 1;
-      z-index: 1;
-    }
+
     .game-card img {
       width: 100%;
       height: 160px;
       object-fit: cover;
       border-radius: 10px 10px 0 0;
     }
+
     .game-card-content {
       padding: 1rem;
     }
+
     .game-card h3 {
       margin: 0 0 0.5rem;
       color: #00ccff;
     }
+
     .game-card p {
       font-size: 0.9rem;
       color: #ccc;
     }
-    .meta {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: #aaa;
-      display: flex;
-      justify-content: space-between;
-    }
+
     .carousel-buttons {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
+      left: 0;
+      right: 0;
       display: flex;
       justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
       pointer-events: none;
     }
+
     .carousel-buttons button {
       background: rgba(0, 204, 255, 0.7);
       color: #000;
@@ -70,11 +98,27 @@
       border-radius: 6px;
       cursor: pointer;
       pointer-events: all;
+      font-size: 1.5rem;
     }
+
     .game-card a {
       text-decoration: none;
       color: inherit;
       display: block;
+    }
+
+    .contact img.badge {
+      width: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      background: #1a1a1a;
+      color: #aaa;
     }
   </style>
 </head>
@@ -105,41 +149,43 @@
 
     <h2>Projects</h2>
     <div class="game-carousel">
-      <div class="game-card active">
-        <a href="https://www.roblox.com/games/6205336599/Tycoon-K-Beta" target="_blank">
-          <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" />
-          <div class="game-card-content">
-            <h3>Tycoon K (Beta)</h3>
-            <p>My very first tycoon game</p>
-          </div>
-        </a>
-      </div>
-      <div class="game-card">
-        <a href="https://www.roblox.com/games/9108996185/Mining-Tycoon-Series-X" target="_blank">
-          <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
-          <div class="game-card-content">
-            <h3>Mining Tycoon Series X</h3>
-            <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
-          </div>
-        </a>
-      </div>
-      <div class="game-card">
-        <a href="https://www.roblox.com/games/7712303055/What-did-I-make" target="_blank">
-          <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" />
-          <div class="game-card-content">
-            <h3>What did I make?</h3>
-            <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
-          </div>
-        </a>
-      </div>
-      <div class="game-card">
-        <a href="https://www.roblox.com/games/9671721080/Simon-Says" target="_blank">
-          <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
-          <div class="game-card-content">
-            <h3>Simon Says</h3>
-            <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
-          </div>
-        </a>
+      <div class="carousel-inner">
+        <div class="game-card">
+          <a href="https://www.roblox.com/games/6205336599/Tycoon-K-Beta" target="_blank">
+            <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" />
+            <div class="game-card-content">
+              <h3>Tycoon K (Beta)</h3>
+              <p>My very first tycoon game</p>
+            </div>
+          </a>
+        </div>
+        <div class="game-card">
+          <a href="https://www.roblox.com/games/9108996185/Mining-Tycoon-Series-X" target="_blank">
+            <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
+            <div class="game-card-content">
+              <h3>Mining Tycoon Series X</h3>
+              <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
+            </div>
+          </a>
+        </div>
+        <div class="game-card">
+          <a href="https://www.roblox.com/games/7712303055/What-did-I-make" target="_blank">
+            <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" />
+            <div class="game-card-content">
+              <h3>What did I make?</h3>
+              <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
+            </div>
+          </a>
+        </div>
+        <div class="game-card">
+          <a href="https://www.roblox.com/games/9671721080/Simon-Says" target="_blank">
+            <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
+            <div class="game-card-content">
+              <h3>Simon Says</h3>
+              <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
+            </div>
+          </a>
+        </div>
       </div>
       <div class="carousel-buttons">
         <button onclick="prevCard()">←</button>
@@ -163,26 +209,23 @@
   </footer>
 
   <script>
-    const cards = document.querySelectorAll(".game-card");
+    const carouselInner = document.querySelector('.carousel-inner');
+    const cards = document.querySelectorAll('.game-card');
     let current = 0;
 
-    function showCard(index) {
-      cards.forEach((card, i) => {
-        card.classList.remove("active");
-        card.style.left = (i < index ? "-100%" : i > index ? "100%" : "0");
-        card.style.opacity = (i === index ? 1 : 0);
-      });
-      cards[index].classList.add("active");
+    function updateSlide() {
+      const offset = -current * 100;
+      carouselInner.style.transform = `translateX(${offset}%)`;
     }
 
     function prevCard() {
       current = (current - 1 + cards.length) % cards.length;
-      showCard(current);
+      updateSlide();
     }
 
     function nextCard() {
       current = (current + 1) % cards.length;
-      showCard(current);
+      updateSlide();
     }
   </script>
 </body>
