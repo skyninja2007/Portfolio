@@ -6,21 +6,21 @@
   <title>Skyninja - Roblox Programmer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .game-scroller {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
+    .game-carousel {
+      position: relative;
+      max-width: 280px;
+      margin: auto;
     }
     .game-card {
-      flex: 0 0 280px;
+      display: none;
       background-color: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      scroll-snap-align: start;
       transition: transform 0.3s ease;
+    }
+    .game-card.active {
+      display: block;
     }
     .game-card:hover {
       transform: scale(1.03);
@@ -49,11 +49,30 @@
       display: flex;
       justify-content: space-between;
     }
+    .carousel-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem auto;
+      max-width: 280px;
+    }
+    .carousel-buttons button {
+      background: #00ccff;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .game-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="Images/pfp.png" alt="Skyninja Avatar" class="avatar" />
+    <img src="images/pfp.png" alt="Skyninja Avatar" class="avatar" />
     <h1>Skyninja</h1>
     <p>Roblox Developer & Programmer</p>
   </header>
@@ -77,43 +96,47 @@
     </ul>
 
     <h2>Projects</h2>
-    <div class="game-scroller">
-      <div class="game-card">
-        <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" />
-        <div class="game-card-content">
-          <h3>Tycoon K (Beta)</h3>
-          <p>My very first tycoon game</p>
-          <div class="meta">
+    <div class="game-carousel">
+      <div class="game-card active">
+        <a href="https://www.roblox.com/games/16724164537/Tycoon-K-Beta" target="_blank">
+          <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" />
+          <div class="game-card-content">
+            <h3>Tycoon K (Beta)</h3>
+            <p>My very first tycoon game</p>
           </div>
-        </div>
+        </a>
       </div>
       <div class="game-card">
-        <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
-        <div class="game-card-content">
-          <h3>Mining Tycoon Series X</h3>
-          <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
-          <div class="meta">
+        <a href="https://www.roblox.com/games/16724224400/Mining-Tycoon-Series-X" target="_blank">
+          <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
+          <div class="game-card-content">
+            <h3>Mining Tycoon Series X</h3>
+            <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
           </div>
-        </div>
+        </a>
       </div>
       <div class="game-card">
-        <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" />
-        <div class="game-card-content">
-          <h3>What did I make?</h3>
-          <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
-          <div class="meta">
+        <a href="https://www.roblox.com/games/16724257912/What-did-I-make" target="_blank">
+          <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" />
+          <div class="game-card-content">
+            <h3>What did I make?</h3>
+            <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
           </div>
-        </div>
+        </a>
       </div>
       <div class="game-card">
-        <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
-        <div class="game-card-content">
-          <h3>Simon Says</h3>
-          <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
-          <div class="meta">
+        <a href="https://www.roblox.com/games/16724330178/Simon-Says" target="_blank">
+          <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
+          <div class="game-card-content">
+            <h3>Simon Says</h3>
+            <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
           </div>
-        </div>
+        </a>
       </div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="prevCard()">← Previous</button>
+      <button onclick="nextCard()">Next →</button>
     </div>
 
     <h2>Contact</h2>
@@ -132,27 +155,22 @@
   </footer>
 
   <script>
-    const menuBtn = document.querySelector(".menu-btn");
-    const nav = document.querySelector("nav");
-    if (menuBtn && nav) {
-      menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
+    const cards = document.querySelectorAll(".game-card");
+    let current = 0;
+
+    function showCard(index) {
+      cards.forEach((card, i) => card.classList.toggle("active", i === index));
+    }
+
+    function prevCard() {
+      current = (current - 1 + cards.length) % cards.length;
+      showCard(current);
+    }
+
+    function nextCard() {
+      current = (current + 1) % cards.length;
+      showCard(current);
     }
   </script>
-  <button class="toggle-btn" onclick="toggleTheme()">Light/Dark Mode</button>
-
-<script>
-  function toggleTheme() {
-    document.body.classList.toggle('light-mode');
-    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
-  }
-
-  // Auto load saved theme
-  window.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') document.body.classList.add('light-mode');
-  });
-</script>
 </body>
 </html>
