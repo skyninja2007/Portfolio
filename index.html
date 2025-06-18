@@ -81,12 +81,11 @@
     .carousel-buttons {
       position: absolute;
       top: 50%;
-      left: 0;
-      right: 0;
+      left: -50px;
+      right: -50px;
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      padding: 0 10px;
       pointer-events: none;
     }
 
@@ -99,6 +98,26 @@
       cursor: pointer;
       pointer-events: all;
       font-size: 1.5rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .carousel-dots span {
+      width: 10px;
+      height: 10px;
+      background-color: #555;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-dots span.active {
+      background-color: #00ccff;
     }
 
     .game-card a {
@@ -148,7 +167,7 @@
     </ul>
 
     <h2>Projects</h2>
-    <div class="game-carousel">
+    <div class="game-carousel" id="carousel">
       <div class="carousel-inner">
         <div class="game-card">
           <a href="https://www.roblox.com/games/6205336599/Tycoon-K-Beta" target="_blank">
@@ -164,7 +183,7 @@
             <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
             <div class="game-card-content">
               <h3>Mining Tycoon Series X</h3>
-              <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
+              <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore.</p>
             </div>
           </a>
         </div>
@@ -182,7 +201,7 @@
             <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
             <div class="game-card-content">
               <h3>Simon Says</h3>
-              <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
+              <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages.</p>
             </div>
           </a>
         </div>
@@ -191,6 +210,7 @@
         <button onclick="prevCard()">←</button>
         <button onclick="nextCard()">→</button>
       </div>
+      <div class="carousel-dots" id="dots"></div>
     </div>
 
     <h2>Contact</h2>
@@ -211,22 +231,61 @@
   <script>
     const carouselInner = document.querySelector('.carousel-inner');
     const cards = document.querySelectorAll('.game-card');
+    const dotsContainer = document.getElementById('dots');
     let current = 0;
+    let autoSlide;
+
+    // Create dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => {
+        current = i;
+        updateSlide();
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    });
 
     function updateSlide() {
       const offset = -current * 100;
       carouselInner.style.transform = `translateX(${offset}%)`;
+      [...dotsContainer.children].forEach(dot => dot.classList.remove('active'));
+      dotsContainer.children[current].classList.add('active');
     }
 
     function prevCard() {
       current = (current - 1 + cards.length) % cards.length;
       updateSlide();
+      resetAutoSlide();
     }
 
     function nextCard() {
       current = (current + 1) % cards.length;
       updateSlide();
+      resetAutoSlide();
     }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      autoSlide = setInterval(nextCard, 5000);
+    }
+
+    // Swipe support
+    let startX = 0;
+    document.getElementById('carousel').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.getElementById('carousel').addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      const delta = startX - endX;
+      if (delta > 50) nextCard();
+      if (delta < -50) prevCard();
+    });
+
+    // Init
+    updateSlide();
+    autoSlide = setInterval(nextCard, 5000);
   </script>
 </body>
 </html>
