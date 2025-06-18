@@ -4,51 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skyninja - Roblox Programmer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
-      color: #ffffff;
-      line-height: 1.6;
+    .game-scroller {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
     }
-    header {
+    .game-card {
+      flex: 0 0 280px;
       background-color: #1e1e1e;
-      padding: 2rem;
-      text-align: center;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .game-card:hover {
+      transform: scale(1.03);
     }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    .game-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
     }
-    h2 {
-      color: #00ccff;
-      border-bottom: 2px solid #00ccff;
-      padding-bottom: 0.3rem;
-    }
-    .project {
-      margin-bottom: 2rem;
-    }
-    .contact a {
-      color: #00ccff;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
+    .game-card-content {
       padding: 1rem;
-      background-color: #1e1e1e;
-      color: #888;
+    }
+    .game-card h3 {
+      margin: 0 0 0.5rem;
+      color: #00ccff;
+    }
+    .game-card p {
       font-size: 0.9rem;
+      color: #ccc;
+    }
+    .meta {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
     }
   </style>
 </head>
 <body>
   <header>
+    <img src="images/pfp.png" alt="Skyninja Avatar" class="avatar" />
     <h1>Skyninja</h1>
     <p>Roblox Developer & Programmer</p>
   </header>
@@ -56,14 +61,14 @@
   <section>
     <h2>About Me</h2>
     <p>
-      Hi! I'm <strong>Skyninja</strong>, a Roblox developer who specializes in scripting and gameplay systems.
+      Hi! I'm <strong>Skyninja</strong>, I'm 18 and I'm a Roblox developer who specializes in scripting and gameplay systems.
       I work with ModuleScripts, RemoteEvents, DataStores, UI systems, and more. I enjoy creating efficient and clean code for immersive player experiences.
     </p>
 
     <h2>Skills</h2>
     <ul>
-      <li>Roblox Lua (5+ years)</li>
-      <li>ModuleScripts & OOP</li>
+      <li>Roblox Lua (5 years)</li>
+      <li>ModuleScripts & learning OOP</li>
       <li>RemoteEvents & RemoteFunctions</li>
       <li>UI Scripting with TweenService</li>
       <li>DataStore & ProfileService</li>
@@ -72,38 +77,79 @@
     </ul>
 
     <h2>Projects</h2>
-    <div class="project">
-      <h3>Bit Builders (Tycoon Game)</h3>
-      <p>
-        A resource-gathering tycoon game where players upgrade systems to generate and sell digital bits.
-        I programmed the generation logic, upgrades, save/load system, and UI.
-      </p>
-    </div>
-    <div class="project">
-      <h3>Realm Rush TD</h3>
-      <p>
-        Tower defense game with pathfinding enemies, dynamic waves, and upgrade systems.
-        I handled all the enemy AI logic, spawn wave manager, and client/server communication.
-      </p>
-    </div>
-    <div class="project">
-      <h3>Map Voting System (Script Module)</h3>
-      <p>
-        A reusable module that selects 3 random maps, displays them with GUI thumbnails, and resolves ties fairly.
-        Built for flexibility in both small and large-scale multiplayer games.
-      </p>
+    <div class="game-scroller">
+      <div class="game-card">
+        <img src="images/bit-builders.png" alt="Bit Builders Screenshot" />
+        <div class="game-card-content">
+          <h3>Tycoon K (Beta)</h3>
+          <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore. I programmed the generation logic, upgrades, save/load system, and UI.</p>
+          <div class="meta">
+            <span class="players">23 Playing</span>
+            <span class="rating">⭐ 91%</span>
+          </div>
+        </div>
+      </div>
+      <div class="game-card">
+        <img src="images/realm-rush.png" alt="Realm Rush Screenshot" />
+        <div class="game-card-content">
+          <h3>What did I make?</h3>
+          <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
+          <div class="meta">
+            <span class="players">5 Playing</span>
+            <span class="rating">⭐ 87%</span>
+          </div>
+        </div>
+      </div>
+      <div class="game-card">
+        <img src="images/map-voting.png" alt="Map Voting Screenshot" />
+        <div class="game-card-content">
+          <h3>Simon Says</h3>
+          <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages using GUI.</p>
+          <div class="meta">
+            <span class="players">9 Playing</span>
+            <span class="rating">⭐ 94%</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <h2>Contact</h2>
     <p class="contact">
+      <img src="images/discord-badge.png" alt="Discord Badge" class="badge" />
       Discord: <code>skyninja#0000</code><br />
-      Roblox: <a href="#">Your Roblox Profile</a><br />
-      GitHub: <a href="#">Your GitHub Profile</a>
+      <img src="images/roblox-badge.png" alt="Roblox Badge" class="badge" />
+      Roblox: <a href="https://www.roblox.com/users/441506351/profile">My Roblox Profile</a><br />
+      <img src="images/github-badge.png" alt="GitHub Badge" class="badge" />
+      GitHub: <a href="https://github.com/skyninja2007">My GitHub Profile</a>
     </p>
   </section>
 
   <footer>
     &copy; 2025 Skyninja. Portfolio powered by GitHub Pages.
   </footer>
+
+  <script>
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+    if (menuBtn && nav) {
+      menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
+  </script>
+  <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
+
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+  }
+
+  // Auto load saved theme
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.body.classList.add('light-mode');
+  });
+</script>
 </body>
 </html>
