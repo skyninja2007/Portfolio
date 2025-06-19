@@ -52,7 +52,7 @@ ul {
   transition: transform 0.5s ease-in-out;
   will-change: transform;
   gap: 1rem;
-  justify-content:flex-start;
+  justify-content: flex-start;
   padding: 0 0.5rem;
 }
 
@@ -181,6 +181,25 @@ ul {
 .contact a:hover {
   text-decoration: underline;
 }
+
+.contact i {
+  margin-right: 8px;
+  color: #5865F2; /* Discord purple */
+}
+.contact i.fa-github {
+  color: #333;
+}
+.contact i.fa-youtube {
+  color: #E2231A; /* Roblox red-ish */
+}
+
+.Icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
 
 /* Footer */
 footer {
