@@ -5,143 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skyninja - Roblox Programmer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      background-color: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-
-    .avatar {
-      width: 100px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
-
-    section {
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    .game-carousel {
-      position: relative;
-      max-width: 280px;
-      margin: auto;
-      overflow: hidden;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-    }
-
-    .game-card {
-      flex: 0 0 100%;
-      background-color: #1e1e1e;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      margin-right: 10px;
-    }
-
-    .game-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
-
-    .game-card-content {
-      padding: 1rem;
-    }
-
-    .game-card h3 {
-      margin: 0 0 0.5rem;
-      color: #00ccff;
-    }
-
-    .game-card p {
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      padding: 0 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .carousel-buttons button {
-      background: rgba(0, 204, 255, 0.7);
-      color: #000;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      pointer-events: all;
-      font-size: 1.5rem;
-    }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .carousel-dots span {
-      width: 10px;
-      height: 10px;
-      background-color: #555;
-      border-radius: 50%;
-      margin: 0 5px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .carousel-dots span.active {
-      background-color: #00ccff;
-      transform: scale(1.2);
-    }
-
-    .game-card a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .contact img.badge {
-      width: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-      background: #1a1a1a;
-      color: #aaa;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -209,8 +72,8 @@
         </div>
       </div>
       <div class="carousel-buttons">
-        <button onclick="prevCard()" aria-label="Previous Slide">←</button>
-        <button onclick="nextCard()" aria-label="Next Slide">→</button>
+        <button class="carousel-button carousel-button-left" onclick="prevCard()" aria-label="Previous Slide">←</button>
+        <button class="carousel-button carousel-button-right" onclick="nextCard()" aria-label="Next Slide">→</button>
       </div>
       <div class="carousel-dots" id="dots"></div>
     </div>
