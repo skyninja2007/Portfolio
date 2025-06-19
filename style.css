@@ -28,11 +28,22 @@ ul {
   padding-left: 1.5rem;
 }
 
+.section-divider {
+  height: 5px;
+  background-color: #0000ff;
+  margin: 3rem auto;
+  max-width: 100%;
+}
+
 /* Game carousel */
 .game-carousel {
   position: relative;
   max-width: 280px;
   margin: auto;
+  overflow: visible;
+}
+
+.game-wrap {
   overflow: hidden;
 }
 
@@ -40,15 +51,19 @@ ul {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
+  gap: 1rem;
+  justify-content:flex-start;
+  padding: 0 0.5rem;
 }
 
 .game-card {
   flex: 0 0 100%;
+  max-width: 290px;
+  margin: 0 auto;
   background-color: #1e1e1e;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  margin-right: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .game-card img {
@@ -83,9 +98,10 @@ ul {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   display: flex;
+  overflow: visible;
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
@@ -102,6 +118,7 @@ ul {
   width: 40px;
   height: 100%;
   display: flex;
+  overflow: visible;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s;
@@ -110,7 +127,7 @@ ul {
 .carousel-button-left {
   background: linear-gradient(to right, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
   position: absolute;
-  left: -10px;
+  left: -30px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -118,7 +135,7 @@ ul {
 .carousel-button-right {
   background: linear-gradient(to left, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
   position: absolute;
-  right: -10px;
+  right: -30px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
