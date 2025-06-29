@@ -1,189 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skyninja - Roblox Programmer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyninja - Roblox Programmer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for primary text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <img src="Images/pfp.png" alt="Skyninja Avatar" class="avatar" />
-    <h1>Skyninja</h1>
-    <p>Roblox Developer & Programmer</p>
-  </header>
-
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Hi! I'm <strong>Skyninja</strong>, I'm 18 and I'm a Roblox developer who specializes in scripting and gameplay systems. 
-      I have also explored developement off of roblox such as Discord bot developement and Game Designing using Godot and Itch.io.
-    </p>
-    <div class="section-divider"></div>
-    <h2>Skills</h2>
-    <ul>
-      <li>Full Stack Programming</li>
-      <li>2D & 3D Designer</li>
-      <li>Multi-lingual [Arabic-English]</li>
-      <li>Community Management</li>
-      <li>Organized</li>
-      <li>Prototyping and Concepting</li>
-      <li>Data Driven and Analytical</li>
-    </ul>
-    <div class="section-divider"></div>
-    <h2>Projects</h2>
-    <div class="game-carousel" id="carousel">
-      <div class="game-wrap">
-        <div class="carousel-inner">
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/6205336599/Tycoon-K-Beta" target="_blank">
-              <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" />
-              <div class="game-card-content">
-                <h3>Tycoon K (Beta)</h3>
-                <p>My very first tycoon game</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/9108996185/Mining-Tycoon-Series-X" target="_blank">
-              <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" />
-              <div class="game-card-content">
-                <h3>Mining Tycoon Series X</h3>
-                <p>A resource-gathering tycoon game where players upgrade systems to generate and sell Ore.</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/7712303055/What-did-I-make" target="_blank">
-              <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" />
-              <div class="game-card-content">
-                <h3>What did I make?</h3>
-                <p>A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/9671721080/Simon-Says" target="_blank">
-              <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" />
-              <div class="game-card-content">
-                <h3>Simon Says</h3>
-                <p>A simple menu system for Simon to freeze/unfreeze players and send server-wide messages.</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/98025770525592/Inf-Runner" target="_blank">
-              <img src="Images/Inf-Runner.png" alt="Inf-Runner" />
-              <div class="game-card-content">
-                <h3>Inf Runner</h3>
-                <p>An attempt of mine to remake chromes infite dinosor runner but with Roblox style.</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/15925954729/Test" target="_blank">
-              <img src="Images/Inf-Dashing.png" alt="Inf-Dashing" />
-              <div class="game-card-content">
-                <h3>Inf Dashing</h3>
-                <p>An Inf obby but you are air dashing to the end.</p>
-              </div>
-            </a>
-          </div>
-          <div class="game-card">
-            <a href="https://www.roblox.com/games/101449990172484/Snow" target="_blank">
-              <img src="Images/RobloxNorm_Thumbnail.png" alt="Snow" />
-              <div class="game-card-content">
-                <h3>Snow</h3>
-                <p>Unoptimized but cool looking snow! ig.</p>
-              </div>
-            </a>
-          </div>
+<body class="antialiased leading-relaxed bg-gray-900 text-gray-100">
+    <!-- Header Section -->
+    <header class="bg-gray-800 shadow-xl py-6 md:py-8 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-400">
+                <a href="#hero" class="hover:text-blue-200 transition-colors duration-300">Skyninja</a>
+            </h1>
+            <nav class="mt-4 md:mt-0">
+                <ul class="flex space-x-4 md:space-x-8">
+                    <li><a href="#about" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">About</a></li>
+                    <li><a href="#skills" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">Skills</a></li>
+                    <li><a href="#projects" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">Projects</a></li>
+                    <li><a href="#availability" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">Availability</a></li>
+                    <li><a href="#assets" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">Shop</a></li>
+                    <li><a href="#contact" class="text-gray-200 hover:text-blue-400 transition-colors duration-300 text-lg font-medium">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <div class="carousel-buttons">
-        <button class="carousel-button carousel-button-left" onclick="prevCard()" aria-label="Previous Slide">←</button>
-        <button class="carousel-button carousel-button-right" onclick="nextCard()" aria-label="Next Slide">→</button>
-      </div>
-      <div class="carousel-dots" id="dots"></div>
-    </div>
-    <div class="section-divider"></div>
-    <h2>Contact</h2>
-    <p class="contact">
-      <i class="fab fa-discord"></i>
-      Discord: <code>real_skyninja</code><br />
-      <img class="Icon" src="Images/Roblox_Logo.png" alt="Roblox"/>
-      Roblox: <a href="https://www.roblox.com/users/441506351/profile">My Roblox Profile</a><br />
-      <i class="fab fa-github"></i>
-      GitHub: <a href="https://github.com/skyninja2007">My GitHub Profile</a><br/>
-      <i class="fab fa-youtube"></i>
-      Youtube: <a href="https://www.youtube.com/@SkyninjaDevelops">My Youtube Channel</a>
-    </p>
-  </section>
+    </header>
 
-  <footer>
-    &copy; 2025 Skyninja. Portfolio powered by GitHub Pages.
-  </footer>
+    <!-- Hero Section -->
+    <section id="hero" class="relative py-24 md:py-32 text-center overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="absolute inset-0 bg-dots"></div> <!-- Background dots pattern -->
+        <div class="container mx-auto px-4 relative z-10">
+            <img src="Images/pfp.png" alt="Skyninja Avatar" class="w-40 h-40 rounded-full mx-auto mb-8 shadow-2xl border-4 border-blue-500 transform transition-transform duration-500 hover:scale-110">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">Skyninja</h2>
+            <p class="text-2xl text-blue-300 max-w-3xl mx-auto mb-10">
+                Game Developer/Programmer.
+            </p>
+            <a href="#projects" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                Explore My Work
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+    </section>
 
-  <script>
-    const carouselInner = document.querySelector('.carousel-inner');
-    const cards = document.querySelectorAll('.game-card');
-    const dotsContainer = document.getElementById('dots');
-    let current = 0;
-    let autoSlide;
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-gray-800 border-b border-gray-700">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">About Me</h3>
+            <div class="text-gray-300 leading-relaxed text-lg grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="md:pr-8">
+                    <p class="mb-4">
+                        Hello! I'm <strong class="text-blue-300">Skyninja</strong>, an 18-year-old <strong class="text-blue-300">Game Developer with 2-3 years of experience</strong>, primarily creating games using <strong class="text-blue-300">Roblox</strong>, 
+                        and occasionally <strong class="text-blue-300">Godot</strong> or <strong class="text-blue-300">GameMaker</strong> for various projects.
+                    </p>
+                    <p class="mb-4">
+                        I'm also familure with <strong class="text-blue-300">Discord bot development</strong>, creating tools to enhance online communities.
+                    </p>
+                </div>
+                <!-- <div class="flex justify-center items-center">
+                    <div class="relative w-full h-64 bg-gray-700 rounded-lg shadow-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://placehold.co/400x300/1f2937/d1d5db?text=Concept+Art" alt="Game Development Concept" class="w-full h-full object-cover opacity-70">
+                        <span class="absolute text-xl font-semibold text-gray-300 px-4 py-2 bg-gray-900 bg-opacity-70 rounded-md">Creative Vision</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
 
-    // Create dots with ARIA
-    cards.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      dot.addEventListener('click', () => {
-        current = i;
-        updateSlide();
-        resetAutoSlide();
-      });
-      dotsContainer.appendChild(dot);
-    });
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-24 bg-gray-900 border-b border-gray-700">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">My Expertise</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-code text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Full Stack Programming</h4>
+                    <p class="text-gray-400 text-sm">Proficient in various programming languages and development stacks.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-palette text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">2D & 3D Designer</h4>
+                    <p class="text-gray-400 text-sm">Skilled in creating compelling visuals and assets.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-language text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Multi-lingual</h4>
+                    <p class="text-gray-400 text-sm">Fluent in Arabic and English for broader communication.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-users-cog text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Community Management</h4>
+                    <p class="text-gray-400 text-sm">Experienced in building and nurturing online communities.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-clipboard-check text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Organized & Efficient</h4>
+                    <p class="text-gray-400 text-sm">Structured approach to project execution and task management.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-lightbulb text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Prototyping & Concepting</h4>
+                    <p class="text-gray-400 text-sm">Ability to quickly develop and test new ideas.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 border border-gray-700">
+                    <i class="fas fa-chart-line text-5xl text-blue-400 mb-4"></i>
+                    <h4 class="text-xl font-semibold text-white mb-2">Data Driven & Analytical</h4>
+                    <p class="text-gray-400 text-sm">Utilizing data to inform decisions and optimize outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function updateSlide() {
-      const offset = -current * 100;
-      carouselInner.style.transform = `translateX(${offset}%)`;
-      [...dotsContainer.children].forEach(dot => dot.classList.remove('active'));
-      dotsContainer.children[current].classList.add('active');
-    }
+    <!-- Projects Section (Carousel) -->
+    <section id="projects" class="py-16 md:py-24 bg-gray-800 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">My Projects</h3>
+            <div class="game-carousel relative max-w-md mx-auto overflow-hidden bg-gray-700 rounded-xl shadow-xl border border-gray-600">
+                <div class="game-wrap overflow-hidden">
+                    <div class="carousel-inner flex transition-transform duration-500 ease-in-out will-change-transform">
+                        <!-- Project 1 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/6205336599/Tycoon-K-Beta" target="_blank" class="block">
+                                <img src="Images/TK_Thumbnail.png" alt="Tycoon K (Beta)" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Tycoon K (Beta)</h4>
+                                    <p class="text-gray-300 text-base">My very first tycoon game, a comprehensive project showcasing core game mechanics.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 2 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/9108996185/Mining-Tycoon-Series-X" target="_blank" class="block">
+                                <img src="Images/RobloxNorm_Thumbnail.png" alt="Mining Tycoon Series X" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Mining Tycoon Series X</h4>
+                                    <p class="text-gray-300 text-base">A resource-gathering tycoon game where players upgrade systems to generate and sell Ore.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 3 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/7712303055/What-did-I-make" target="_blank" class="block">
+                                <img src="Images/RobloxNorm_Thumbnail.png" alt="What did I make?" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">What did I make?</h4>
+                                    <p class="text-gray-300 text-base">A game where I test random features like a dance floor, freeze players GUI, and kill/heal parts.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 4 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/9671721080/Simon-Says" target="_blank" class="block">
+                                <img src="Images/RobloxNorm_Thumbnail.png" alt="Simon Says" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Simon Says</h4>
+                                    <p class="text-gray-300 text-base">A simple menu system for Simon to freeze/unfreeze players and send server-wide messages.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 5 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/98025770525592/Inf-Runner" target="_blank" class="block">
+                                <img src="Images/Inf-Runner.png" alt="Inf-Runner" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Inf-Runner</h4>
+                                    <p class="text-gray-300 text-base">An attempt of mine to remake Chrome's infinite dinosaur runner, but with Roblox style.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 6 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/15925954729/Test" target="_blank" class="block">
+                                <img src="Images/Inf-Dashing.png" alt="Inf-Dashing" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Inf-Dashing</h4>
+                                    <p class="text-gray-300 text-base">An infinite obby where you use air dashing to reach the end.</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Project 7 -->
+                        <div class="game-card flex-shrink-0 w-full">
+                            <a href="https://www.roblox.com/games/101449990172484/Snow" target="_blank" class="block">
+                                <img src="Images/RobloxNorm_Thumbnail.png" alt="Snow" class="w-full h-64 object-cover rounded-t-xl"/>
+                                <div class="game-card-content p-6">
+                                    <h4 class="text-2xl font-semibold text-blue-300 mb-2">Snow</h4>
+                                    <p class="text-gray-300 text-base">Unoptimized but cool looking snow! It's a visual experiment.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-buttons absolute top-0 bottom-0 left-0 right-0 flex justify-between items-center px-4 md:px-0">
+                    <button class="carousel-button carousel-button-left bg-gradient-to-r from-gray-700 to-transparent text-white text-4xl p-4 rounded-l-lg hover:opacity-80 transition-opacity duration-300" onclick="prevCard()" aria-label="Previous Slide">
+                        &larr;
+                    </button>
+                    <button class="carousel-button carousel-button-right bg-gradient-to-l from-gray-700 to-transparent text-white text-4xl p-4 rounded-r-lg hover:opacity-80 transition-opacity duration-300" onclick="nextCard()" aria-label="Next Slide">
+                        &rarr;
+                    </button>
+                </div>
+                <div class="carousel-dots flex justify-center mt-6" id="dots"></div>
+            </div>
+        </div>
+    </section>
 
-    function prevCard() {
-      current = (current - 1 + cards.length) % cards.length;
-      updateSlide();
-      resetAutoSlide();
-    }
+    <!-- Availability Section -->
+    <section id="availability" class="py-16 md:py-24 bg-gray-900 border-b border-gray-700">
+        <div class="container mx-auto px-4 max-w-2xl text-center">
+            <h3 class="text-4xl font-bold text-blue-400 mb-8">My Availability</h3>
+            <p class="text-xl text-gray-300 mb-8">
+                I am currently <span id="availability-status" class="font-bold text-green-400">available</span> for new projects and exciting collaborations!
+                Let's discuss how I can bring your ideas to life.
+            </p>
+            <div class="flex items-center justify-center space-x-4 mb-8">
+                <span class="relative flex h-5 w-5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+                </span>
+                <span class="text-gray-400 text-lg">Status: <span class="font-bold text-green-400">Open for work</span></span>
+            </div>
+            <p class="text-sm text-gray-500">
+                (My availability may vary based on current commitments. For specific timelines or urgent requests, please contact me directly.)
+            </p>
+            <button onclick="toggleAvailability()" class="mt-10 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 transform hover:scale-105">
+                Toggle Availability (for testing)
+            </button>
+        </div>
+    </section>
 
-    function nextCard() {
-      current = (current + 1) % cards.length;
-      updateSlide();
-      resetAutoSlide();
-    }
+    <!-- Assets for Sale Section (Shop) -->
+    <section id="assets" class="py-16 md:py-24 bg-gray-800 border-b border-gray-700">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">My Shop: Assets for Sale</h3>
+            <p class="text-xl text-gray-300 text-center mb-10 max-w-3xl mx-auto">
+                Explore a selection of high-quality game development assets and tools to accelerate your projects.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Asset 1 -->
+                <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-600">
+                    <img src="https://placehold.co/400x300/2d3748/a0aec0?text=UI+Pack" alt="Digital Asset 1" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold text-blue-300 mb-2">UI Kit</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            UI kit with modular components.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-3xl font-bold text-green-400">$??.??</span>
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full text-base transition-colors duration-300">
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextCard, 5000);
-    }
+                <!-- Asset 2 -->
+                <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-600">
+                    <img src="https://placehold.co/400x300/2d3748/a0aec0?text=3D+Model" alt="Digital Asset 2" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold text-blue-300 mb-2">Low-Poly Map</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            A set of low-poly models ready for your game environments.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-3xl font-bold text-green-400">$??.??</span>
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full text-base transition-colors duration-300">
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    // Swipe support
-    let startX = 0;
-    document.getElementById('carousel').addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-    });
+                <!-- Asset 3 -->
+                <div class="bg-gray-700 rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-600">
+                    <img src="https://placehold.co/400x300/2d3748/a0aec0?text=Audio+SFX" alt="Digital Asset 3" class="w-full h-48 object-cover"/>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-semibold text-blue-300 mb-2">Fully Scripted Systems</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Customizable systems ready to use for your games.
+                        </p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-3xl font-bold text-green-400">$??.??</span>
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full text-base transition-colors duration-300">
+                                Coming Soon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more assets here following the same structure -->
+            </div>
+            <div class="text-center mt-16">
+                <p class="text-gray-400 text-lg">
+                    Have a custom asset request or a specific need? <a href="#contact" class="text-blue-400 hover:underline font-semibold">Contact me</a> to discuss!
+                </p>
+            </div>
+        </div>
+    </section>
 
-    document.getElementById('carousel').addEventListener('touchend', e => {
-      const endX = e.changedTouches[0].clientX;
-      const delta = startX - endX;
-      if (delta > 50) nextCard();
-      if (delta < -50) prevCard();
-    });
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-gray-900">
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h3 class="text-4xl font-bold text-blue-400 mb-10">Get in Touch</h3>
+            <p class="text-xl text-gray-300 mb-8">
+                I'm always open to new opportunities and collaborations. Feel free to connect!
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <h4 class="text-2xl font-semibold text-white mb-4">Direct Contact</h4>
+                    <p class="text-gray-300 text-lg mb-2"><i class="fab fa-discord text-blue-400 mr-3"></i> Discord: <code class="bg-gray-700 text-blue-200 px-2 py-1 rounded">real_skyninja</code></p>
+                    <p class="text-gray-300 text-lg mb-2">
+                        <img class="inline-block w-6 h-6 mr-3 vertical-middle roblox-icon" src="Images/Roblox_Logo.png" alt="Roblox"/>
+                        Roblox: <a href="https://www.roblox.com/users/441506351/profile" target="_blank" class="text-blue-400 hover:underline">My Roblox Profile</a>
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg shadow-lg border border-gray-700">
+                    <h4 class="text-2xl font-semibold text-white mb-4">Connect Online</h4>
+                    <p class="text-gray-300 text-lg mb-2">
+                        <i class="fab fa-github text-blue-400 mr-3"></i>
+                        GitHub: <a href="https://github.com/skyninja2007" target="_blank" class="text-blue-400 hover:underline">My GitHub Profile</a>
+                    </p>
+                    <p class="text-gray-300 text-lg mb-2">
+                        <i class="fab fa-youtube text-blue-400 mr-3"></i>
+                        YouTube: <a href="https://www.youtube.com/@SkyninjaDevelops" target="_blank" class="text-blue-400 hover:underline">My YouTube Channel</a>
+                    </p>
+                    <!-- Add more social media links as needed, e.g., Twitter, LinkedIn -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Init
-    updateSlide();
-    autoSlide = setInterval(nextCard, 5000);
-  </script>
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-400 py-8 text-center border-t border-gray-700">
+        <div class="container mx-auto px-4">
+            <p class="text-sm">&copy; 2025 Skyninja's Portfolio - powered by GitHub Pages.</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="https://github.com/skyninja2007" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/@SkyninjaDevelops" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.roblox.com/users/441506351/profile" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300 text-2xl" aria-label="Roblox Profile">
+                     <img class="inline-block w-8 h-8 roblox-icon-footer" src="Images/Roblox_Logo.png" alt="Roblox"/>
+                </a>
+                <!-- Add more social media icons as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
