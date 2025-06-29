@@ -1,211 +1,143 @@
-/* Base styles */
+/* style.css */
+
+/* General Body and Font Styles */
 body {
-  background-color: #121212;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Inter', sans-serif;
+    /* Tailwind classes handle most background and text color, but define here for fallback/clarity */
+    background-color: #1a202c; /* Equivalent to gray-900 */
+    color: #e2e8f0; /* Equivalent to gray-100 */
 }
 
-header {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.avatar {
-  width: 100px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
+::-webkit-scrollbar-track {
+    background: #2d3748; /* Darker grey */
+    border-radius: 10px;
 }
 
-section {
-  padding: 2rem;
-  max-width: 700px;
-  margin: auto;
+::-webkit-scrollbar-thumb {
+    background: #63b3ed; /* Light blue */
+    border-radius: 10px;
 }
 
-ul {
-  padding-left: 1.5rem;
+::-webkit-scrollbar-thumb:hover {
+    background: #4299e1; /* Darker blue on hover */
 }
 
-.section-divider {
-  height: 5px;
-  background-color: #0000ff;
-  margin: 3rem auto;
-  max-width: 100%;
+/* Hero Section Background Dots Pattern */
+.bg-dots {
+    background-image: radial-gradient(#4a5568 1px, transparent 1px),
+                      radial-gradient(#4a5568 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.1; /* Subtle opacity */
 }
 
-/* Game carousel */
+/* Specific styles for Roblox icon to adjust vertical alignment */
+.roblox-icon {
+    vertical-align: middle;
+    margin-bottom: 2px; /* Fine-tune alignment */
+}
+
+.roblox-icon-footer {
+    vertical-align: middle;
+    margin-bottom: 4px; /* Adjust for larger footer icon */
+}
+
+/* Game Carousel specific styles - adapting old styles to new theme */
 .game-carousel {
-  position: relative;
-  max-width: 280px;
-  margin: auto;
-  overflow: visible;
-}
-
-.game-wrap {
-  overflow: hidden;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
-  gap: 1rem;
-  justify-content: flex-start;
-  padding: 0 0.5rem;
+    /* Tailwind handles max-width, margin, overflow, background, border, shadow, rounded */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-xl */
 }
 
 .game-card {
-  flex: 0 0 100%;
-  max-width: 290px;
-  margin: 0 auto;
-  background-color: #1e1e1e;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    /* Tailwind handles flex-shrink-0, w-full */
+    background-color: #2d3748; /* Equivalent to gray-700 */
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to shadow-md */
 }
 
 .game-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+    /* Tailwind handles w-full, h-64, object-cover, rounded-t-xl */
+    border-radius: 0.75rem 0.75rem 0 0; /* Tailwind's rounded-t-xl */
 }
 
-.game-card-content {
-  padding: 1rem;
+.game-card-content h4 {
+    /* Tailwind handles font-semibold, mb-2, text-blue-300 */
+    color: #90cdf4; /* Equivalent to blue-300 */
 }
 
-.game-card h3 {
-  margin: 0 0 0.5rem;
-  color: #00ccff;
-}
-
-.game-card p {
-  font-size: 0.9rem;
-  color: #ccc;
+.game-card-content p {
+    /* Tailwind handles text-gray-300, text-base */
+    color: #cbd5e0; /* Equivalent to gray-300 */
 }
 
 .game-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
+    text-decoration: none; /* Ensure no underline by default */
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Make the whole card clickable */
 }
 
-/* Carousel buttons */
+/* Carousel buttons - adjusting for new theme and better visual integration */
 .carousel-buttons {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  overflow: visible;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
+    /* Tailwind handles absolute positioning, top, bottom, left, right, flex, justify-between, items-center, px */
+    pointer-events: none; /* Make sure the parent div doesn't block clicks on cards */
 }
 
 .carousel-button {
-  pointer-events: all;
-  border: none;
-  background: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  z-index: 2;
-  width: 40px;
-  height: 100%;
-  display: flex;
-  overflow: visible;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s;
+    pointer-events: all; /* Make buttons clickable again */
+    border: none;
+    background: none; /* Background set by Tailwind gradients in HTML */
+    font-size: 3rem; /* Larger arrows */
+    color: #d1d5db; /* Light gray for arrows */
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are above cards */
+    width: 60px; /* Wider hit area for buttons */
+    height: 100%; /* Full height to easily click */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
 }
 
 .carousel-button-left {
-  background: linear-gradient(to right, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
-  position: absolute;
-  left: -30px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+    background: linear-gradient(to right, rgba(29, 38, 52, 0.8), rgba(29, 38, 52, 0)); /* Darker gradient */
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 }
 
 .carousel-button-right {
-  background: linear-gradient(to left, rgba(18, 18, 18, 1), rgba(18, 18, 18, 0));
-  position: absolute;
-  right: -30px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+    background: linear-gradient(to left, rgba(29, 38, 52, 0.8), rgba(29, 38, 52, 0)); /* Darker gradient */
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .carousel-button:hover {
-  opacity: 0.8;
+    opacity: 0.9;
+    transform: scale(1.1); /* Subtle scale on hover */
 }
 
-/* Dots */
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
+/* Carousel Dots */
+/* .carousel-dots {
+    /* Tailwind handles display, justify-content, margin-top
+} */
 
 .carousel-dots span {
-  width: 10px;
-  height: 10px;
-  background-color: #555;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+    width: 12px; /* Slightly larger dots */
+    height: 12px;
+    background-color: #4a5568; /* Darker gray for inactive dots */
+    border-radius: 50%;
+    margin: 0 6px; /* Increased margin */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .carousel-dots span.active {
-  background-color: #00ccff;
-  transform: scale(1.2);
-}
-
-/* Contact section */
-.contact img.badge {
-  width: 20px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-.contact a {
-  color: #00ccff;
-  text-decoration: none;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
-.contact i {
-  margin-right: 8px;
-  color: #5865F2; /* Discord purple */
-}
-.contact i.fa-github {
-  color: #333;
-}
-.contact i.fa-youtube {
-  color: #E2231A; /* Roblox red-ish */
-}
-
-.Icon {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.8rem;
-  background: #1a1a1a;
-  color: #aaa;
+    background-color: #63b3ed; /* Brighter blue for active dot */
+    transform: scale(1.3); /* More pronounced scale */
+    box-shadow: 0 0 8px rgba(99, 179, 237, 0.7); /* Glow effect */
 }
